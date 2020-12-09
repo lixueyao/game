@@ -1,0 +1,29 @@
+<!--pages/run/run.wxml-->
+<view id="app">
+  <image class="bg" src="../../images/app.png" mode="aspectFill" >
+  </image>
+  <view class="btn">
+    <a href="#" class="btn-1 {{model == 'step' ? 'btn-active' : ''}}" bindtap="clickStep">步数</a>
+    <a href="#" class="btn-2 {{model == 'qiandao' ? 'btn-active' : ''}}" bindtap="clickQ">签到</a>
+  </view>
+  <view class="run" wx:if="{{model == 'step'}}">
+    当前步数：{{curRun}}
+  </view>
+  <view class="boxes" wx:if="{{isload}}">
+    <view class="box box-a box-s"></view>
+    <view class="box"></view>
+    <view class="box">
+      <view class="progress">
+        <view class="bar">
+          <view class="bar-fill" style="width:{{fillWidth}}"></view>
+        </view>
+        <block wx:for="{{point}}" wx:key="index">
+          <view class="point {{item.isSelect ? 'point-complete':''}} {{curSelect == index ? 'point-active' : ''}}"  bindtap="clickPoint" data-index="{{index}}">
+            <view class="bullet"></view>
+            <view class="label">{{item.text}}</view>
+          </view>
+        </block>
+      </view> 
+    </view>
+  </view>
+</view>

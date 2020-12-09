@@ -1,0 +1,22 @@
+<!--pages/run/run.wxml-->
+<view id="app">
+  <image class="bg" src="../../images/app.png" mode="aspectFill" >
+  </image>
+  <view class="boxes">
+    <view class="box box-a box-s"></view>
+    <view class="box"></view>
+    <view class="box">
+      <view class="progress">
+        <view class="bar">
+          <view class="bar-fill"></view>
+        </view>
+        <block wx:for="{{point}}" wx:key="index">
+          <view class="point {{item.isSelect ? 'point-complete':''}}">
+            <view class="bullet"></view>
+            <view class="label">{{item.text}}</view>
+          </view>
+        </block>
+      </view> 
+    </view>
+  </view>
+</view>
